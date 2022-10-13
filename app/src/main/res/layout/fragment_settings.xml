@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="@dimen/general_padding"
+    android:paddingBottom="56dp"
+    tools:context=".ui.settings.SettingsFragment">
+
+    <com.google.android.flexbox.FlexboxLayout
+        style="@style/CustomLayout"
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@+id/fireNotify">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etServerUri"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_server_uri"
+
+                android:inputType="textUri" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btSaveChanges"
+            style="@style/CustomButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            app:icon="@drawable/ic_baseline_save_24"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+    </com.google.android.flexbox.FlexboxLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/fireNotify"
+        style="@style/CustomButton"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Notification"
+
+        app:backgroundTint="#FDD835"
+        app:icon="@drawable/ic_notifications_black_24dp"
+
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

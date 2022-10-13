@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="@dimen/general_padding"
+    android:paddingBottom="56dp"
+    tools:context=".ui.remote.RemoteFragment"
+
+    >
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/flexboxLayout"
+        style="@style/CustomLayout"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@+id/refreshButton">
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+
+            app:alignItems="center"
+            app:flexWrap="nowrap"
+            app:justifyContent="space_between">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/controlMute"
+                style="@style/OnlyIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:icon="@drawable/ic_baseline_volume_off_24" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/controlVolumeDown"
+                style="@style/OnlyIcon"
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:icon="@drawable/ic_baseline_volume_down_24" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/controlVolumeUp"
+                style="@style/OnlyIcon"
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:icon="@drawable/ic_baseline_volume_up_24" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/controlPrevious"
+                style="@style/OnlyIcon"
+                android:layout_width="wrap_content"
+
+                android:layout_height="match_parent"
+                app:icon="@drawable/ic_baseline_skip_previous_24" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/controlNext"
+                style="@style/OnlyIcon"
+                android:layout_width="wrap_content"
+
+                android:layout_height="match_parent"
+                app:icon="@drawable/ic_baseline_skip_next_24" />
+
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <com.google.android.flexbox.FlexboxLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="35dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/controlLeft"
+
+                style="@style/RemoteHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+
+                app:icon="@drawable/ic_baseline_keyboard_arrow_left_24"
+                app:layout_flexShrink="2" />
+
+            <com.google.android.flexbox.FlexboxLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="24sp"
+                app:alignItems="center"
+                app:flexDirection="column"
+                app:justifyContent="center"
+
+                app:layout_flexShrink="6">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/controlUp"
+
+                    style="@style/RemoteVertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    app:icon="@drawable/ic_baseline_keyboard_arrow_up_24" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/controlSpace"
+
+                    style="@style/RemoteVertical"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    app:icon="@drawable/ic_baseline_play_arrow_24" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/controlDown"
+
+                    style="@style/RemoteVertical"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    app:icon="@drawable/ic_baseline_keyboard_arrow_down_24" />
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/controlRight"
+
+                style="@style/RemoteHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:icon="@drawable/ic_baseline_keyboard_arrow_right_24"
+                app:layout_flexShrink="2" />
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+
+            android:layout_marginTop="35dp"
+            app:alignItems="center"
+            app:flexWrap="nowrap"
+
+            app:justifyContent="space_between">
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/controlFullscreen"
+
+                style="@style/OnlyIcon"
+                android:layout_width="wrap_content"
+
+                android:layout_height="match_parent"
+                app:icon="@drawable/ic_baseline_open_in_full_24" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/controlPause"
+
+                style="@style/OnlyIcon"
+                android:layout_width="wrap_content"
+
+                android:layout_height="match_parent"
+                app:icon="@drawable/ic_baseline_pause_24" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/controlTab"
+
+                style="@style/OnlyIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:icon="@drawable/ic_baseline_keyboard_tab_24" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/controlShiftTab"
+
+                style="@style/OnlyIcon"
+                android:layout_width="wrap_content"
+
+                android:layout_height="match_parent"
+                app:icon="@drawable/ic_baseline_keyboard_backspace_24" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/controlEnter"
+
+                style="@style/OnlyIcon"
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+
+                app:icon="@drawable/ic_baseline_keyboard_return_24" />
+
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+    </com.google.android.flexbox.FlexboxLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/refreshButton"
+        style="@style/CustomButton"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Refresh"
+
+        app:icon="@drawable/ic_baseline_refresh_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

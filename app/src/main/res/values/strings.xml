@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">RemotePH</string>
+    <string name="title_remote">Remote</string>
+    <string name="title_lol">LoL</string>
+    <string name="title_settings">Settings</string>
+
+    <string name="hint_server_uri">http://your-uri:port</string>
+    <string name="hint_champion">Hero Name</string>
+    <string name="storage_file_name">phiberstorage</string>
+</resources>

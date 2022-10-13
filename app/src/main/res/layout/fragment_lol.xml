@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="@dimen/general_padding"
+    android:paddingBottom="56dp"
+    tools:context=".ui.lol.LoLFragment">
+
+    <com.google.android.flexbox.FlexboxLayout
+        style="@style/CustomLayout"
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent">
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/acceptMatch"
+            style="@style/CustomButton"
+
+            android:layout_marginBottom="@dimen/general_spacing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choose Hero"
+            app:icon="@drawable/ic_baseline_person_add_alt_1_24"
+             />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/acceptMatch">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etChampion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_champion"
+                android:text="Master Yi"
+                android:inputType="textUri" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnChooseHero"
+            style="@style/CustomButton"
+
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choose Hero"
+            app:icon="@drawable/ic_baseline_person_add_alt_1_24"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPickHero"
+            style="@style/CustomButton"
+
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pick"
+            app:icon="@drawable/ic_baseline_verified_user_24"
+            app:layout_constraintTop_toBottomOf="@+id/btnChooseHero" />
+    </com.google.android.flexbox.FlexboxLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/refreshButton"
+        style="@style/CustomButton"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Refresh"
+
+        app:icon="@drawable/ic_baseline_refresh_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
