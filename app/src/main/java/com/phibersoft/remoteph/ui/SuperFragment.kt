@@ -5,26 +5,33 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.phibersoft.remoteph.R
 import com.phibersoft.remoteph.helpers.SocketManager
-import com.phibersoft.remoteph.helpers.Storage
 import io.socket.client.Socket
 
 open class SuperFragment : Fragment() {
 
     lateinit var mSock: Socket
 
-    fun afterCreateView(button: Button): Socket {
-        SocketManager.setSocket(Storage.getValue(context as Context, "server_uri", ""))
-        val sock = SocketManager.mSocket
 
-        handleRefreshButton(button, sock)
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        mSock = SocketManager.getSocket()
 
-        return sock
+        // if mSock is not connected, force a reconnect
+        if (!mSock.connected()) {
+            SocketManager.establishConnection()
+        }
     }
 
-    private fun handleRefreshButton(button: Button, sock: Socket) {
-        listener(button, sock)
+    fun afterCreateView(button: Button): Socket {
+        handleRefreshButton(button)
+
+        return mSock
+    }
+
+    private fun handleRefreshButton(button: Button) {
+        listener(button, mSock)
         button.setOnClickListener {
-            listener(button, sock)
+            listener(button, mSock)
         }
     }
 
@@ -44,13 +51,11 @@ open class SuperFragment : Fragment() {
         } else {
             failureButton(button)
 
-            sock.connect()
-                .on("connect") {
-                    successButton(button)
-                }
-                .on("connect_error") {
-                    failureButton(button)
-                }
+            sock.connect().on("connect") {
+                successButton(button)
+            }.on("connect_error") {
+                failureButton(button)
+            }
         }
     }
 }

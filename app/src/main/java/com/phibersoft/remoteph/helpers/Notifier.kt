@@ -45,6 +45,7 @@ class Notifier(
     }
 
 
+    @RequiresApi(Build.VERSION_CODES.N)
     internal fun notify() {
         val notificationLayout = RemoteViews(context.packageName, R.layout.notification_normal)
         val notificationLayoutBig = RemoteViews(context.packageName, R.layout.notification_big)
@@ -63,6 +64,7 @@ class Notifier(
     }
 
 
+    @RequiresApi(Build.VERSION_CODES.S)
     private fun setListeners(smallView: RemoteViews, bigView: RemoteViews) {
         val intentPrev = Intent(context, NotificationService::class.java)
         intentPrev.action = NOTIFY_PREV

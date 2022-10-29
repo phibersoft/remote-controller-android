@@ -8,6 +8,7 @@ import com.phibersoft.remoteph.databinding.FragmentLolBinding
 import com.phibersoft.remoteph.helpers.EventHandler
 import com.phibersoft.remoteph.helpers.SocketManager
 import com.phibersoft.remoteph.ui.SuperFragment
+import java.util.*
 
 class LoLFragment : SuperFragment() {
     private var _binding: FragmentLolBinding? = null
@@ -24,7 +25,7 @@ class LoLFragment : SuperFragment() {
         _binding = FragmentLolBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        mSock = super.afterCreateView(binding.refreshButton)
+        super.afterCreateView(binding.refreshButton)
 
         bindListeners()
 
@@ -36,29 +37,27 @@ class LoLFragment : SuperFragment() {
         // accept-match, choose-hero, select-hero
 
         binding.acceptMatch.setOnClickListener {
-            SocketManager.emitEvent(EventHandler.CreateLoLEvent("accept-match"), mSock)
+            SocketManager.emitEvent(EventHandler.CreateLoLEvent("accept-match"))
         }
 
 
         binding.btnPickHero.setOnClickListener {
             SocketManager.emitEvent(
-                EventHandler.CreateLoLEvent("choose-hero"),
-                mSock
+                EventHandler.CreateLoLEvent("choose-hero")
             )
         }
 
         binding.btnChooseHero.setOnClickListener {
-            SocketManager.emitEvent(EventHandler.CreateLoLEvent("select-hero", getHeroName()), mSock)
+            SocketManager.emitEvent(EventHandler.CreateLoLEvent("select-hero", getHeroName()))
         }
     }
 
     private fun getHeroName(): String {
-        return binding.etChampion.text.toString().toLowerCase()
+        return binding.etChampion.text.toString().lowercase(Locale.ROOT)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-        mSock.disconnect()
     }
 }

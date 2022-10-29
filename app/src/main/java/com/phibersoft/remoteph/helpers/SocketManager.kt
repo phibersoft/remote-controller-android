@@ -5,14 +5,14 @@ import io.socket.client.IO
 import io.socket.client.Socket
 
 object SocketManager {
-    lateinit var mSocket: Socket
+    private lateinit var mSocket: Socket
 
     @Synchronized
     fun setSocket(uri: String) {
         try {
             mSocket = IO.socket(uri)
         } catch (e: Exception) {
-            Log.i("PHIBER-ERROR", "Error: ${e.message.toString()}")
+            Log.e("SocketManager", "Error setting socket: $e")
             mSocket = IO.socket("http://192.168.1.3")
         }
     }
@@ -22,13 +22,30 @@ object SocketManager {
         return mSocket
     }
 
-    fun emitEvent(args: List<Any?>, socket: Socket): Boolean {
+    @Synchronized
+    fun establishConnection() {
+        if (!mSocket.connected()) {
+            mSocket.connect()
+        }
+    }
+
+    @Synchronized
+    fun disconnect() {
+        mSocket.disconnect()
+    }
+
+    fun emitEvent(args: List<Any?>, firstRun: Boolean = true): Boolean {
         Log.i("PHIBER-emitEvent", args.toString())
-        if (socket.connected()) {
-            socket.emit(args[0] as String, args[1], args[2])
-            return true;
+        return if (mSocket.connected()) {
+            mSocket.emit(args[0] as String, args[1], args[2])
+            true
         } else {
-            return false;
+            if (firstRun) {
+                establishConnection()
+                return emitEvent(args, false)
+            } else {
+                return false
+            }
         }
     }
 }

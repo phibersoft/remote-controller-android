@@ -23,7 +23,7 @@ class RemoteFragment : SuperFragment() {
         _binding = FragmentRemoteBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        mSock = super.afterCreateView(binding.refreshButton)
+        super.afterCreateView(binding.refreshButton)
 
         bindListeners()
         return root
@@ -41,13 +41,13 @@ class RemoteFragment : SuperFragment() {
 
     private fun bindListener(button: Button, key: String, modifs: List<String> = listOf()) {
         button.setOnClickListener {
-            SocketManager.emitEvent(EventHandler.CreateMediaEvent(key, modifs), mSock)
+            SocketManager.emitEvent(EventHandler.CreateMediaEvent(key, modifs))
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-        mSock.disconnect()
+        SocketManager.disconnect()
     }
 }

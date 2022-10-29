@@ -3,73 +3,115 @@
     android:id="@+id/rcContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
-
     android:orientation="horizontal"
->
-
+    android:background="@color/black">
+    <!--  Create space_evenly flexible layout 1x4  -->
     <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:layout_gravity="center_vertical"
-        android:padding="10dp"
-
-        android:rowCount="1"
-        android:columnCount="5"
-        android:useDefaultMargins="true"
+        android:layout_height="100dp"
+        android:minHeight="100dp"
         android:orientation="horizontal"
-        >
-
+        android:columnCount="5"
+        android:rowCount="1"
+        android:useDefaultMargins="true"
+        android:layout_gravity="center_vertical"
+        android:padding="10dp">
+        <!--  4 buttons in 1 row  -->
         <ImageButton
             android:id="@+id/rcSoundDown"
             style="@style/StatusButton"
-            android:layout_width="wrap_content"
-
-            android:layout_height="wrap_content"
-
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
             android:src="@drawable/ic_baseline_volume_down_24" />
 
         <ImageButton
             android:id="@+id/rcSoundUp"
             style="@style/StatusButton"
-            android:layout_width="wrap_content"
-
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_volume_up_24"
-
-            />
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_baseline_volume_up_24" />
 
 
         <ImageButton
             android:id="@+id/rcLeft"
             style="@style/StatusButton"
-            android:layout_width="wrap_content"
-
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_skip_previous_24"
-
-            />
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_baseline_skip_previous_24" />
 
         <ImageButton
             android:id="@+id/rcPlay"
             style="@style/StatusButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_play_arrow_24"
-
-            />
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_baseline_play_arrow_24" />
 
         <ImageButton
             android:id="@+id/rcRight"
             style="@style/StatusButton"
-            android:layout_width="wrap_content"
-
-            android:layout_height="wrap_content"
-
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
             android:src="@drawable/ic_baseline_skip_next_24"
 
             />
-
     </GridLayout>
-
 </LinearLayout>
+
+
+    <!--    -->
+    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--    android:id="@+id/rcContainer"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="match_parent"-->
+    <!--    android:orientation="horizontal">-->
+    <!--    <GridLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="64dp"-->
+    <!--        android:layout_gravity="center_vertical"-->
+    <!--        android:columnCount="5"-->
+    <!--        android:orientation="horizontal"-->
+    <!--        android:padding="10dp"-->
+    <!--        android:rowCount="1"-->
+    <!--        android:useDefaultMargins="true">-->
+
+    <!--            <ImageButton-->
+    <!--                android:id="@+id/rcSoundDown"-->
+    <!--                style="@style/StatusButton"-->
+    <!--                android:layout_width="20dp"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:src="@drawable/ic_baseline_volume_down_24" />-->
+
+    <!--            <ImageButton-->
+    <!--                android:id="@+id/rcSoundUp"-->
+    <!--                style="@style/StatusButton"-->
+    <!--                android:layout_width="20dp"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:src="@drawable/ic_baseline_volume_up_24" />-->
+
+
+    <!--            <ImageButton-->
+    <!--                android:id="@+id/rcLeft"-->
+    <!--                style="@style/StatusButton"-->
+    <!--                android:layout_width="20dp"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:src="@drawable/ic_baseline_skip_previous_24" />-->
+
+    <!--            <ImageButton-->
+    <!--                android:id="@+id/rcPlay"-->
+    <!--                style="@style/StatusButton"-->
+    <!--                android:layout_width="20dp"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:src="@drawable/ic_baseline_play_arrow_24" />-->
+
+    <!--            <ImageButton-->
+    <!--                android:id="@+id/rcRight"-->
+    <!--                style="@style/StatusButton"-->
+    <!--                android:layout_width="20dp"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:src="@drawable/ic_baseline_skip_next_24"-->
+
+    <!--                />-->
+
+    <!--    </GridLayout>-->
+
+    <!--</LinearLayout>-->

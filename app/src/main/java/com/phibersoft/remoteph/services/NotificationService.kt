@@ -27,32 +27,13 @@ const val NOTIFY_FULLSCREEN = "com.phibersoft.remoteph.full_screen"
 
 
 class NotificationService : Service() {
-    var mSock: Socket? = null
-
     override fun onBind(p0: Intent?): IBinder? {
         return null
     }
 
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        if (mSock == null) {
-            SocketManager.setSocket(
-                Storage.getValue(
-                    applicationContext as Context,
-                    "server_uri",
-                    ""
-                )
-            )
-            mSock = SocketManager.mSocket
-            Toast.makeText(applicationContext, "Reconnecting to api", Toast.LENGTH_SHORT).show()
-
-            mSock?.connect()
-        } else {
-            if (mSock?.connected() == false) {
-                mSock?.connect()
-                Toast.makeText(applicationContext, "Reconnecting to api", Toast.LENGTH_SHORT).show()
-            }
-        }
+        SocketManager.establishConnection()
 
         val action = intent!!.action
         Log.d("onStartCommand", "action=$action")
@@ -92,7 +73,7 @@ class NotificationService : Service() {
     }
 
     private fun handleEvent(ev: String) {
-        SocketManager.emitEvent(EventHandler.CreateMediaEvent(ev, listOf()), mSock as Socket)
+        SocketManager.emitEvent(EventHandler.CreateMediaEvent(ev, listOf()))
     }
 
 }

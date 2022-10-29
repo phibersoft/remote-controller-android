@@ -1,12 +1,15 @@
 package com.phibersoft.remoteph
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.phibersoft.remoteph.databinding.ActivityMainBinding
 import com.phibersoft.remoteph.helpers.Notifier
+import com.phibersoft.remoteph.helpers.SocketManager
+import com.phibersoft.remoteph.helpers.Storage
 
 
 class MainActivity : AppCompatActivity() {
@@ -15,6 +18,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.i("PHIBER", "MainActivity.onCreate")
+        SocketManager.setSocket(
+            Storage.getValue(
+                this,
+                "server_uri",
+                ""
+            )
+        )
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -26,7 +37,8 @@ class MainActivity : AppCompatActivity() {
 
         navView.setupWithNavController(navController)
 
-        // notificationHandler()
+
+        notificationHandler()
     }
 
 

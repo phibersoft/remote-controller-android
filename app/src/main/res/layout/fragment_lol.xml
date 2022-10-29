@@ -23,8 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Choose Hero"
-            app:icon="@drawable/ic_baseline_person_add_alt_1_24"
-             />
+            app:icon="@drawable/ic_baseline_person_add_alt_1_24" />
 
 
         <com.google.android.material.textfield.TextInputLayout
